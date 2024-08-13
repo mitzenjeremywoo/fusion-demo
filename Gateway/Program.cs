@@ -23,7 +23,13 @@ builder.Services
     .AddFusionGatewayServer()
     .ConfigureFromCloud()
     .CoreBuilder
-    .AddInstrumentation(o => o.RenameRootActivity = true);
+    .AddInstrumentation(o => o.RenameRootActivity = true)
+    .AddBananaCakePopServices(x =>
+    {
+        x.ApiId = "VGhpcyBpcyBub3QgYSByZWFsIGFwaSBpZA==";
+        x.ApiKey = "Tm9wZSwgdGhpcyBpcyBhbHNvIG5vIHJlYWwga2V5IDspIA==";
+        x.Stage = "dev";
+    });
 
 builder.Services
     .AddOpenTelemetry()
